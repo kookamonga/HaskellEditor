@@ -12,7 +12,7 @@ import System.IO
 
 main :: IO ()
 main = do
-    putStrLn "Welcome to the Simple Haskell Text Editor!"
+    putStrLn "Welcome to the Shit Haskell Text Editor!"
     putStrLn "Commands: [edit], [save <filename>], [quit]"
     editorLoop ""
 
