@@ -3,49 +3,51 @@
 #include <string>
 #include <sstream>
 
-void editorLoop(std::string content);
-std::string readLines();
+using namespace std;
+
+void editorLoop(string content);
+string readLines();
 
 int main() {
-    std::cout << "Welcome to the Simple C++ Text Editor!" << std::endl;
-    std::cout << "Commands: [edit], [save <filename>], [quit]" << std::endl;
+    cout << "Welcome to the Simple C++ Text Editor!" << endl;
+    cout << "Commands: [edit], [save <filename>], [quit]" << endl;
     editorLoop("");
     return 0;
 }
 
 void editorLoop(std::string content) {
-    std::cout << "> ";
-    std::string command;
-    std::getline(std::cin, command);
+    cout << "> ";
+    string command;
+    getline(cin, command);
 
-    std::istringstream iss(command);
-    std::string cmd;
+    istringstream iss(command);
+    string cmd;
     iss >> cmd;
 
     if (cmd == "edit") {
-        std::cout << "Enter your text (type ':done' on a new line to finish):" << std::endl;
-        std::string newContent = readLines();
+        cout << "Enter your text (type ':done' on a new line to finish):" << endl;
+        string newContent = readLines();
         editorLoop(content + newContent);
     } else if (cmd == "save") {
-        std::string filename;
+        string filename;
         iss >> filename;
-        std::ofstream outFile(filename);
+        ofstream outFile(filename);
         outFile << content;
         outFile.close();
-        std::cout << "File saved as: " << filename << std::endl;
+        cout << "File saved as: " << filename << endl;
         editorLoop(content);
     } else if (cmd == "quit") {
-        std::cout << "Exiting editor. Goodbye!" << std::endl;
+        cout << "Exiting editor. Goodbye!" << endl;
     } else {
-        std::cout << "Unknown command. Available commands: [edit], [save <filename>], [quit]" << std::endl;
+        cout << "Unknown command. Available commands: [edit], [save <filename>], [quit]" << endl;
         editorLoop(content);
     }
 }
 
-std::string readLines() {
-    std::string line, allLines;
+string readLines() {
+    string line, allLines;
     while (true) {
-        std::getline(std::cin, line);
+        getline(cin, line);
         if (line == ":done") {
             break;
         }
