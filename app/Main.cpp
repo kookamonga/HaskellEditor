@@ -1,3 +1,11 @@
+/* 
+    Acest proiect va adauga folosul tastelor de sageata in viitor
+    Un viitor minunat si fantastic si ireal..
+
+    An nou fericit!
+*/
+
+
 #include <iostream>
 #include <fstream>
 #include <string>
